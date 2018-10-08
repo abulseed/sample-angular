@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #8e44ad,
+  "danger": #ff4136
+);
+
+$font-family-base: 'Heebo';
+$font-size-base: 0.9375rem;
+
+$btn-border-radius: 20px;
+
+$enable-shadows: true;
+
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700');
+@import "../node_modules/bootstrap/scss/bootstrap";
