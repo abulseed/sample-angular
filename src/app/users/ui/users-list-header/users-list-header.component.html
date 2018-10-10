@@ -8,9 +8,15 @@
     </nav>
     <main class="d-flex flex-row justify-content-between align-items-center">
       <h2 class="font-weight-bold">Users List</h2>
-      <button id="new-user-btn" class="btn btn-primary shadow-sm font-weight-bold">
+      <button id="new-user-btn" class="btn btn-primary shadow-sm font-weight-bold" data-toggle="modal" data-target="#addBox">
         <fa-icon style="margin-right: 5px;" [icon]="faPlus"></fa-icon>New User
       </button>
     </main>
+  </div>
+
+  <div class="modal fade" id="addBox" tabindex="-1" role="dialog" aria-labelledby="addBoxTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+      <app-add-user-box></app-add-user-box>
+    </div>
   </div>
 </div>

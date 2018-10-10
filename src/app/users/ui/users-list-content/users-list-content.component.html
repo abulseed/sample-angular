@@ -1,11 +1,12 @@
 <div class="container mt-3">
   <div class="d-flex flex-row align-items-stretch">
-    <div class="d-flex flex-column shadow-sm rounded bg-white p-2 flex-grow-1">
+    <div [ngClass]="{'d-flex flex-column shadow-sm bg-white flex-grow-1 pl-3': true, 'rounded-all-10 pr-3': !selectedUser, 'rounded-left-10': selectedUser}">
       <app-user-panel-heading></app-user-panel-heading>
-      <app-user-panel></app-user-panel>
-      <app-user-panel></app-user-panel>
-      <app-user-panel></app-user-panel>
+      <div *ngFor="let user of users">
+        <app-user-panel [avatarSrc]="user.avatar" [username]="user.first_name + ' ' + user.last_name" [userId]="user.id"></app-user-panel>
+      </div>
     </div>
-    <app-user-info style="flex-basis: 262px;"></app-user-info>
+    <app-user-info *ngIf="selectedUser" [avatarSrc]="selectedUser.avatar" [username]="selectedUser.first_name + ' ' + selectedUser.last_name"
+      style="flex-basis: 262px;"></app-user-info>
   </div>
 </div>

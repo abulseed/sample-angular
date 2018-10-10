@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { NgForm } from '@angular/forms';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-users-list-header',
@@ -7,12 +9,10 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./users-list-header.component.scss']
 })
 export class UsersListHeaderComponent implements OnInit {
-
   faPlus = faPlus;
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
-
 }
