@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { UsersComponent } from './users.component';
@@ -15,11 +16,14 @@ import { UserInfoComponent } from './ui/user-info/user-info.component';
 import { AddUserBoxComponent } from './ui/add-user-box/add-user-box.component';
 import { EditUserBoxComponent } from './ui/edit-user-box/edit-user-box.component';
 import { DeleteUserBoxComponent } from './ui/delete-user-box/delete-user-box.component';
+import { AuthenticationModule } from '../auth/authentication.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    AuthenticationModule
   ],
   declarations: [
     UsersComponent,
