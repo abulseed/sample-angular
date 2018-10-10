@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-delete-button',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-button.component.scss']
 })
 export class DeleteButtonComponent implements OnInit {
+  @Input() username: string;
+  @Input() userId: string;
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
-
 }
