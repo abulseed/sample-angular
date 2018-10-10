@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-edit-button',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-button.component.scss']
 })
 export class EditButtonComponent implements OnInit {
+  @Input() userAvatar: string;
+  @Input() username: string;
+  @Input() userId;
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
-
 }
