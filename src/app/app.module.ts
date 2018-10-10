@@ -7,17 +7,19 @@ import { LogoComponent } from './logo/logo.component';
 
 import { AuthenticationModule } from './auth/authentication.module';
 import { UsersModule } from './users/users.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    UsersModule,
+    AuthenticationModule,
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
     LogoComponent
-  ],
-  imports: [
-    BrowserModule,
-    UsersModule,
-    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
