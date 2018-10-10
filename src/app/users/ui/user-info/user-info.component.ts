@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NotificationService } from '../../../notification/notification.service';
 
 @Component({
   selector: 'app-user-info',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent implements OnInit {
+  @Input() avatarSrc: string;
+  @Input() username: string;
 
-  constructor() { }
+  constructor(private notificationService: NotificationService<boolean>) { }
 
   ngOnInit() {
   }
 
+  closeWindow() {
+    this.notificationService.notify(true);
+  }
 }
