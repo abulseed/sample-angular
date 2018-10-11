@@ -4,8 +4,8 @@
     </app-user-avatar>
     <div [ngClass]="{'ml-3': true, 'text-secondary': selected}">{{username}}</div>
   </div>
-  <app-delete-button *ngIf="!selected" [username]="username" [userId]="userId" class="p-2"></app-delete-button>
-  <app-edit-button *ngIf="!selected" [userAvatar]="avatarSrc" [username]="username" [userId]="userId" class="p-2"></app-edit-button>
+  <app-delete-button *ngIf="!selected" [user]="user" class="p-2"></app-delete-button>
+  <app-edit-button *ngIf="!selected" [user]="user" class="p-2"></app-edit-button>
   <app-details-button (click)="onSelect()" id="details" class="ml-auto p-3" [selected]="selected"></app-details-button>
 </div>
 <hr />

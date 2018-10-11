@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UsersService } from '../../users.service';
+import { Store } from '@ngrx/store';
+
+import { User } from '../../user.model';
+
+import * as SelectUserActions from '../../store/users.actions';
+import { UserStore } from '../../store/users-store.model';
 
 @Component({
   selector: 'app-edit-button',
@@ -8,12 +12,14 @@ import { UsersService } from '../../users.service';
   styleUrls: ['./edit-button.component.scss']
 })
 export class EditButtonComponent implements OnInit {
-  @Input() userAvatar: string;
-  @Input() username: string;
-  @Input() userId;
+  @Input() user: User;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private store: Store<UserStore>) { }
 
   ngOnInit() {
+  }
+
+  onEdit() {
+    this.store.dispatch(new SelectUserActions.EditUser(this.user));
   }
 }

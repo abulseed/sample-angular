@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UsersService } from '../../users.service';
+import { Store } from '@ngrx/store';
+
+import { User } from '../../user.model';
+
+import * as SelectUserActions from '../../store/users.actions';
+import { UserStore } from '../../store/users-store.model';
 
 @Component({
   selector: 'app-delete-button',
@@ -7,11 +12,14 @@ import { UsersService } from '../../users.service';
   styleUrls: ['./delete-button.component.scss']
 })
 export class DeleteButtonComponent implements OnInit {
-  @Input() username: string;
-  @Input() userId: string;
+  @Input() user: User;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private store: Store<UserStore>) { }
 
   ngOnInit() {
+  }
+
+  onDelete() {
+    this.store.dispatch(new SelectUserActions.EditUser(this.user));
   }
 }

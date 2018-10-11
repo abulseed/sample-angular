@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NotificationService } from '../../../notification/notification.service';
+import { Store } from '@ngrx/store';
+
+import * as SelectUserActions from '../../store/users.actions';
+import { User } from '../../user.model';
+import { UserStore } from '../../store/users-store.model';
 
 @Component({
   selector: 'app-user-panel',
@@ -9,23 +13,22 @@ import { NotificationService } from '../../../notification/notification.service'
 export class UserPanelComponent implements OnInit {
   @Input() avatarSrc: string;
   @Input() username: string;
-  @Input() userId;
+  @Input() user: User;
   selected = false;
 
-  constructor(private notificationService: NotificationService<String>) { }
+  constructor(private store: Store<UserStore>) { }
 
   ngOnInit() {
-    this.notificationService.notifier.subscribe((val) => {
-      if (+this.userId !== +val) {
-        this.selected = false;
-      } else if (typeof val === 'boolean') {
+    this.store.select('selectUser').subscribe((user) => {
+      if (user.selectedUser) {
+        this.selected = this.user.id === user.selectedUser.id;
+      } else {
         this.selected = false;
       }
     });
   }
 
   onSelect() {
-    this.notificationService.notify(this.userId);
-    this.selected = true;
+    this.store.dispatch(new SelectUserActions.SelectUser(this.user));
   }
 }

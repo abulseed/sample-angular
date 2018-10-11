@@ -3,6 +3,7 @@
   <form id="mainForm" class="w-100" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group text-muted">
       <label for="name">Name</label>
+      {{username}}
       <input type="text" class="form-control" id="name" [(ngModel)]="username" name="name" placeholder="Name...">
     </div>
     <div class="form-group text-muted">

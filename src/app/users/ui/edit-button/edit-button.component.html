@@ -1,10 +1,9 @@
 <button id="editBtn" class="d-flex flex-row justify-content-center align-items-center border border-primary bg-white"
-  data-toggle="modal" data-target="#editBox">
+  data-toggle="modal" data-target="#editBox" (click)="onEdit()">
   <img src="../../assets/icons-8-edit.svg" class="icons8-edit">
 </button>
-
 <div class="modal fade" id="editBox" tabindex="-1" role="dialog" aria-labelledby="editBoxTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-    <app-edit-user-box [userAvatar]="userAvatar" [username]="username" [userId]="userId"></app-edit-user-box>
+    <app-edit-user-box></app-edit-user-box>
   </div>
 </div>

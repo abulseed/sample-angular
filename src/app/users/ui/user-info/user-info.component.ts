@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NotificationService } from '../../../notification/notification.service';
+import { Store } from '@ngrx/store';
+
+import * as SelectUserActions from '../../store/users.actions';
+import { UserStore } from '../../store/users-store.model';
 
 @Component({
   selector: 'app-user-info',
@@ -10,12 +13,12 @@ export class UserInfoComponent implements OnInit {
   @Input() avatarSrc: string;
   @Input() username: string;
 
-  constructor(private notificationService: NotificationService<boolean>) { }
+  constructor(private store: Store<UserStore>) { }
 
   ngOnInit() {
   }
 
   closeWindow() {
-    this.notificationService.notify(true);
+    this.store.dispatch(new SelectUserActions.SelectUser(null));
   }
 }

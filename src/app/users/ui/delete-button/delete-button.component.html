@@ -1,11 +1,11 @@
 <button id="deleteUser" class="d-flex flex-row justify-content-center align-items-center border border-primary bg-white"
-  data-toggle="modal" data-target="#exampleModalCenter">
+  data-toggle="modal" data-target="#exampleModalCenter" (click)="onDelete()">
   <img src="../../assets/icons-8-delete.svg" alt="Delete" class="icons8-delete">
 </button>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center" role="document">
-    <app-delete-user-box [username]="username" [userId]="userId"></app-delete-user-box>
+    <app-delete-user-box></app-delete-user-box>
   </div>
 </div>
