@@ -16,7 +16,7 @@ import { UserInfoComponent } from './ui/user-info/user-info.component';
 import { AddUserBoxComponent } from './ui/add-user-box/add-user-box.component';
 import { EditUserBoxComponent } from './ui/edit-user-box/edit-user-box.component';
 import { DeleteUserBoxComponent } from './ui/delete-user-box/delete-user-box.component';
-import { AuthenticationModule } from '../auth/authentication.module';
+import { AuthenticationModule } from '../../core/auth/authentication.module';
 
 @NgModule({
   imports: [
@@ -24,6 +24,8 @@ import { AuthenticationModule } from '../auth/authentication.module';
     FontAwesomeModule,
     FormsModule,
     AuthenticationModule
+  ], exports: [
+    UsersComponent
   ],
   declarations: [
     UsersComponent,

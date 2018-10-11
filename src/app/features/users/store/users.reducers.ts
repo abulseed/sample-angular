@@ -1,7 +1,7 @@
 import * as SelectUserActions from './users.actions';
 import { UserStore } from './users-store.model';
 
-const initialState: UserStore = {
+const initialState = {
     selectedUser: null,
     editingUser: null
 };

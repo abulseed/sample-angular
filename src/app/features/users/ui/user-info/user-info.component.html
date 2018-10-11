@@ -1,0 +1,30 @@
+<div id="main-panel" class="d-flex flex-column justify-content-center align-items-center bg-light">
+  <button type="button" class="close icons8-delete_sign" aria-label="Close" (click)="closeWindow()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-user-avatar [avatarSrc]="avatarSrc" [altText]="username" width="125" height="125"></app-user-avatar>
+  <h4 class="font-weight-bold mb-5">{{username}}</h4>
+  <div class="d-flex flex-row justify-content-around align-items-center w-100">
+    <button id="edit-user" class="btn btn-primary shadow-sm font-weight-bold" data-toggle="modal" data-target="#editBox"
+      (click)="onEdit()">
+      <img src="../../assets/icons-8-edit-copy-3.svg" class="icons8-edit-copy-3 mr-2">Edit
+    </button>
+    <button id="delete-user" class="btn btn-secondary shadow-sm font-weight-bold border-primary text-primary"
+      data-toggle="modal" data-target="#exampleModalCenter" (click)="onDelete()">
+      <img src="../../assets/icons-8-delete.svg" class="icons8-edit-copy-3 mr-2">Delete
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="editBox" tabindex="-1" role="dialog" aria-labelledby="editBoxTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+    <app-edit-user-box></app-edit-user-box>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center" role="document">
+    <app-delete-user-box></app-delete-user-box>
+  </div>
+</div>

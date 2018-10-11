@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 
 import * as SelectUserActions from '../../store/users.actions';
 import { UserStore } from '../../store/users-store.model';
+import { User } from '../../user.model';
 
 @Component({
   selector: 'app-user-info',
@@ -12,6 +13,7 @@ import { UserStore } from '../../store/users-store.model';
 export class UserInfoComponent implements OnInit {
   @Input() avatarSrc: string;
   @Input() username: string;
+  @Input() user: User;
 
   constructor(private store: Store<UserStore>) { }
 
@@ -20,5 +22,13 @@ export class UserInfoComponent implements OnInit {
 
   closeWindow() {
     this.store.dispatch(new SelectUserActions.SelectUser(null));
+  }
+
+  onEdit() {
+    this.store.dispatch(new SelectUserActions.EditUser(this.user));
+  }
+
+  onDelete() {
+    this.store.dispatch(new SelectUserActions.EditUser(this.user));
   }
 }

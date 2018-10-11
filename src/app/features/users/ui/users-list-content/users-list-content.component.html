@@ -8,6 +8,6 @@
     </div>
     <app-user-info *ngIf="((selectedUserState | async).selectedUser)" [avatarSrc]="((selectedUserState | async).selectedUser).avatar"
       [username]="((selectedUserState | async).selectedUser).first_name + ' ' + ((selectedUserState | async).selectedUser).last_name"
-      style="flex-basis: 262px;"></app-user-info>
+      [user]="((selectedUserState | async).selectedUser)" style="flex-basis: 262px;"></app-user-info>
   </div>
 </div>
